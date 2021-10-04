@@ -2,9 +2,8 @@
 const mongoose = require('mongoose');
 
 //password mongodb 
-const password = encodeURIComponent(process.env.DB_PASSWORD);
-const url = `mongodb+srv://${process.env.DB_USER}:${password}@cluster0.az664.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority
-`;
+const password = encodeURIComponent(process.env.MDB_PASSWORD);
+const url = `mongodb+srv://${process.env.MDB_USER}:${password}@zomato.u4f1q.mongodb.net/${process.env.MDB_NAME}?retryWrites=true&w=majority`;
 
 //mongose connect with db and mongoose options
 mongoose.connect(url,{
