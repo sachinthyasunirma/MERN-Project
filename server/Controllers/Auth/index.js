@@ -12,7 +12,7 @@ const router = express.Router();
 @Desc  - Register new user
 @Params- None
 @Access- Public
-Method - POST
+@Method - POST
 */
 const signUp =  async (req,res)=>{
     const {
@@ -20,32 +20,14 @@ const signUp =  async (req,res)=>{
         email,
         password,
         phoneNumber
-    }=req.body //object inside the body
+    }=req.body.credentials //object inside the body
     try{
         //check email and phone 
-        const checkUserByEmail = await usermodel.findOne({email});
-        const checkUserByPhone = await usermodel.findOne({phoneNumber});
-
-        //check whether email exits
-        if(checkUserByEmail||checkUserByPhone){
-            return(
-                res.json({
-                    data: [],
-                    message: {
-                        email:"User already exits"
-                    }
-                })
-            )
-        }
-
-        //hash_password
-        const bcryptSalt = await bcrypt.genSalt(8);
-        const hashedPassword = await bcrypt.hash(password, bcryptSalt)
-
+        await usermodel.checkEmialAndPhone(req.body.credentials);
+        
         //save db
-        await usermodel.create({
-            ...req.body,
-            password:hashedPassword
+        const newUser = await usermodel.create({
+            ...req.body.credentials,
         })
 
         //generate JWT auth token
