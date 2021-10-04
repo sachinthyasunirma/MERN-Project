@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-    fullname :{ 
+    fullName :{ 
         type: String,
         required: true
     },
@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
     },
     password:{
         type: String,
+        required: true
     },
     address:[{
         details:{
@@ -24,8 +25,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
     }
 },{
-    timestamps = true
-});
+    timestamps : true
+})
 
 const UserModel = mongoose.model("Users", UserSchema);//create collection user 
 

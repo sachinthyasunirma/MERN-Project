@@ -14,14 +14,13 @@ const router = express.Router();
 @Access- Public
 Method - POST
 */
-
-router.post("/singup", async (req,res)=>{
+const signUp =  async (req,res)=>{
     const {
-        fullname,
+        fullName,
         email,
         password,
         phoneNumber
-    }=req.body.credentials;//object inside the body
+    }=req.body //object inside the body
     try{
         //check email and phone 
         const checkUserByEmail = await usermodel.findOne({email});
@@ -50,7 +49,7 @@ router.post("/singup", async (req,res)=>{
         })
 
         //generate JWT auth token
-        const token = jwt.sign({user: {fullname,email}},"ZomatoApp")
+        const token = jwt.sign({user: {fullName,email}},"ZomatoApp")
 
         return res.status(200).json({
             token, 
@@ -62,4 +61,8 @@ router.post("/singup", async (req,res)=>{
             error:error.message
         })
     }
-})
+}
+
+module.exports ={
+    signUp
+}
