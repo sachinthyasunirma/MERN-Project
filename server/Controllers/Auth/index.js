@@ -15,12 +15,7 @@ const router = express.Router();
 @Method - POST
 */
 const signUp =  async (req,res)=>{
-    const {
-        fullName,
-        email,
-        password,
-        phoneNumber
-    }=req.body.credentials //object inside the body
+    
     try{
         //check email and phone 
         await usermodel.checkEmialAndPhone(req.body.credentials);
@@ -29,10 +24,7 @@ const signUp =  async (req,res)=>{
         const newUser = await usermodel.create({
             ...req.body.credentials,
         })
-
-        //generate JWT auth token
-        const token = jwt.sign({user: {fullName,email}},"ZomatoApp")
-
+        const token = newUser.generatejwtToken();
         return res.status(200).json({
             token, 
             status:"success"

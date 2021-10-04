@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const UserSchema = new mongoose.Schema({
     fullName :{ 
         type: String,
@@ -28,6 +29,9 @@ const UserSchema = new mongoose.Schema({
     timestamps : true
 })
 //static and methods
+UserSchema.methods.generatejwtToken = function(){
+    return jwt.sign({user: this._id.toString()},`${process.env.JWT_KEY}`)
+}
 UserSchema.statics.checkEmialAndPhone = async ({email, phoneNumber})=>{
     const checkUserByEmail = await UserModel.findOne({email});
     const checkUserByPhone = await UserModel.findOne({phoneNumber});
