@@ -9,5 +9,6 @@ const{
 
 // create post route for the signup
 router.post("/signup", signUp)
+router.post("signin", signIn)
 
 module.exports = router;

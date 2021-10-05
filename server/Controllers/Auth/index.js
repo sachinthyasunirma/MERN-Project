@@ -37,6 +37,29 @@ const signUp =  async (req,res)=>{
     }
 }
 
+/*
+@Route - /signin
+@Desc  - signin using by email and password
+@Params- None
+@Access- Public
+@Method - POST
+*/
+
+const signIn = async (req,res)=>{
+    try{
+        const user = await usermodel.getEmailAndPassword(req.body.credentials);
+        const token = user.generatejwtToken();
+        return res.status(200).json({
+            token,
+            status: "success"
+        })
+    }catch(error){
+        return res.status(500).json({
+            message: error
+        })
+    }
+}
 module.exports ={
-    signUp
+    signUp,
+    signIn
 }

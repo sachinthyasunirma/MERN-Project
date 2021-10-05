@@ -29,6 +29,14 @@ const UserSchema = new mongoose.Schema({
     timestamps : true
 })
 //static and methods
+UserSchema.statics.getEmailAndPassword = async ({email, password})=>{
+    const user = await UserModel.findOne({email})
+    if(!user) throw new Error("User does not exist!!!")
+    const isPassword = await bcrypt.compare(password, user.password);
+    if(!isPassword) throw new Error("Invalid Password!!!, Plase enter your password again")
+
+    return user;
+}
 UserSchema.methods.generatejwtToken = function(){
     return jwt.sign({user: this._id.toString()},`${process.env.JWT_KEY}`)
 }
