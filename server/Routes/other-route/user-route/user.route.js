@@ -9,7 +9,21 @@ const{
 }=require('../../../Controllers/Auth/index');
 
 // create post route for the signup
+/*
+@Route - /signup
+@Desc  - Register new user
+@Params- None
+@Access- Public
+@Method - POST
+*/
 router.post("/signup", signUp)
+/*
+@Route - /signin
+@Desc  - signin using by email and password
+@Params- None
+@Access- Public
+@Method - POST
+*/
 router.post("signin", signIn)
 
 /*

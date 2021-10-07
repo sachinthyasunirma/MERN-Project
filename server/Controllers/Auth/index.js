@@ -7,13 +7,6 @@ const usermodel = require('../../Models/user/user.model');
 
 const router = express.Router();
 
-/*
-@Route - /signup
-@Desc  - Register new user
-@Params- None
-@Access- Public
-@Method - POST
-*/
 const signUp =  async (req,res)=>{
     
     try{
@@ -36,14 +29,6 @@ const signUp =  async (req,res)=>{
         })
     }
 }
-
-/*
-@Route - /signin
-@Desc  - signin using by email and password
-@Params- None
-@Access- Public
-@Method - POST
-*/
 
 const signIn = async (req,res)=>{
     try{
