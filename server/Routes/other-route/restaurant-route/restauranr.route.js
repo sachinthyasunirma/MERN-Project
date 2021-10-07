@@ -1,6 +1,6 @@
 const express = require('express');
 
-const router = express.Router();
+const router = express.Router(); 
 //import the business controller
 const{
     searchResByLocation,
@@ -28,7 +28,7 @@ router.get("/:_id",searchResById);
 @Desc  - Search restaurant based on the current string
 @Params- None
 @Access- Public
-@Method - POST
+@Method - Get
 */
 router.get("/searchString", searchByString);
 
