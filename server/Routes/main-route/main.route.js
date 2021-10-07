@@ -8,7 +8,8 @@ router.use("/user",userRoute);
 
 //import restaurant route from the other route restaurant
 const restaurantRoute = require('../other-route/restaurant-route/restauranr.route');
-router.use("/",restaurantRoute);
+router.use("/restaurant",restaurantRoute);
 
-
+//import food route from  the other route food
+const foodRoute = require("../other-route/food-route/food.route");
 module.exports = router;
