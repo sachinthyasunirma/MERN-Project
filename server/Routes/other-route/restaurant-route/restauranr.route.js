@@ -6,7 +6,7 @@ const{
     searchResByLocation,
     searchResById,
     searchByString
-}=require("../../Controllers/Restaurant/index");
+}=require("../../../Controllers/Restaurant/index");
 /*
 @Route - /
 @Desc  - Search restaurant based on the current location
