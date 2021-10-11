@@ -19,7 +19,7 @@ app.use(cors());//allow to access our API
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
-
+//main
 const mainRoute = require("./Routes/main-route/main.route");
 app.use("/api", mainRoute);
 //Start Server Call
