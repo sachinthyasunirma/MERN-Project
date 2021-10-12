@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require("express");
+
 const router = express.Router();
 
 const {
@@ -22,4 +23,4 @@ router.get("/r/:id", searchResById);
 */
 router.get("/c/:category", searchCateByString);
 
-module.exprots = router;
+module.exports = router;

@@ -8,7 +8,7 @@ const MenuSchema = new mongoose.Schema({
                 required: true
             },
             items:{
-                tyep:mongoose.Types.ObjectId,
+                type:mongoose.Types.ObjectId,
                 ref:"Foods"
             }
         }
@@ -16,8 +16,7 @@ const MenuSchema = new mongoose.Schema({
     recommended:[
         {
             type: mongoose.Types.ObjectId,
-            ref:"Foods",
-            unique=true
+            ref:"Foods"
         }
     ]
 },{

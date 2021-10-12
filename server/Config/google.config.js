@@ -1,4 +1,4 @@
-import passport from 'passport';
+const passport = require('passport')
 
 const googleOauth = require('passport-google-oauth20');
 
@@ -6,7 +6,7 @@ const usermodel = require('../Models/user/user.model');
 
 const googleStrategy = googleOauth.Strategy;//create login in google route
 
-export default (passport)=> {
+module.exports = (passport) => {
     passport.use(
         new googleStrategy({
             clientID: process.env.AUTH_CLIENT_ID,
