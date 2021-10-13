@@ -18,4 +18,9 @@ router.use("/food",foodRoute);
 const menuRoute = require("../other-route/menu-route/menu.route");
 router.use("/menu", menuRoute);
 
+////import Image route from "other route image"
+const imageRoute = require("../other-route/image-route/image.route");
+router.use("/image", imageRoute);
+
+
 module.exports = router;
