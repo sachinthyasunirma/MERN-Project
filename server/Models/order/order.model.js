@@ -39,10 +39,6 @@ const OrderSchema = new mongoose.Schema({
             }
         }
     ],
-    orderRatings:{
-        typr: Number,
-        required:true
-    }
 },{
     timestamps:true
 })

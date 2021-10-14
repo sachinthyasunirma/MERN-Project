@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    orderId
+    orderId,
+    orderNew
 }=require("../../../Controllers/Order/index");
 /*
 @Route - /order/:_id
@@ -12,4 +13,12 @@ const {
 @Method - Get
 */
 router.get("/:_id", orderId);
+/*
+@Route - /order/new
+@Desc  - Get new order based on id
+@Params- _id
+@Access- Public
+@Method - post
+*/
+router.post("/new/:_id", orderNew)
 module.exports = router;
