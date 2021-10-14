@@ -1,3 +1,4 @@
+const { use } = require('passport');
 const userModel = require('../../Models/user/user.model');
 
 const getUserData = async (req,res)=>{
@@ -21,6 +22,20 @@ const getUserData = async (req,res)=>{
         })
     }
 }
+const updateUser = async (req,res)=>{
+    const{
+        _id
+    }=req.params
+    const{
+        userNewUpdates
+    }=req.body
+    const userupdate = await userModel.findByIdAndUpdate({_id},{$set:{userNewUpdates}},{new:true})
+    return res.status(200).json({
+        data:userupdate,
+        message:"success"
+    })
+}
 module.exports = {
-    getUserData
+    getUserData,
+    updateUser
 }
