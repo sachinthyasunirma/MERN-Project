@@ -26,4 +26,8 @@ router.use("/image", imageRoute);
 const orderRoute = require('../other-route/order-route/order.route');
 router.use("/order", orderRoute);
 
+//import Review route from "other route review"
+const reviewRoute = require('../other-route/review-route/review.route');
+router.use("/review", reviewRoute);
+
 module.exports = router;
