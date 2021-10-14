@@ -18,9 +18,12 @@ router.use("/food",foodRoute);
 const menuRoute = require("../other-route/menu-route/menu.route");
 router.use("/menu", menuRoute);
 
-////import Image route from "other route image"
+//import Image route from "other route image"
 const imageRoute = require("../other-route/image-route/image.route");
 router.use("/image", imageRoute);
 
+//import Order route from "other route order"
+const orderRoute = require('../other-route/order-route/order.route');
+router.use("/order", orderRoute);
 
 module.exports = router;
