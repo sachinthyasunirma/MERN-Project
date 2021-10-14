@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 //import user route from the other route
-const userRoute = require('../other-route/user-route/user.route');
+const authRoute = require('../other-route/user-route/user.route');
 //create user route
-router.use("/user",userRoute);
+router.use("/auth",authRoute);
 
 //import restaurant route from "other route restaurant"
 const restaurantRoute = require('../other-route/restaurant-route/restauranr.route');
@@ -29,5 +29,10 @@ router.use("/order", orderRoute);
 //import Review route from "other route review"
 const reviewRoute = require('../other-route/review-route/review.route');
 router.use("/review", reviewRoute);
+
+//import user route from the other route
+const userRoute = require('../other-route/user-route/userInfo.route');
+//create user route
+router.use("/user",userRoute);
 
 module.exports = router;
