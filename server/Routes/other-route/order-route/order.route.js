@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const passport = require('passport');
 const {
     orderId,
     orderNew
@@ -12,7 +12,7 @@ const {
 @Access- Public
 @Method - Get
 */
-router.get("/:_id", orderId);
+router.get("/:_id",passport.authenticate('jwt', {session: false}), orderId);
 /*
 @Route - /order/new
 @Desc  - Get new order based on id

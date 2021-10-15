@@ -5,6 +5,7 @@ const passport = require('passport');
 
 //configs
 const googleAuthConfig = require('./Config/google.config');
+const routerConfig = require('./Config/route.config');
 //enable enviroment file
 dotenv.config();
 
@@ -14,6 +15,7 @@ const app = express();
 
 //passport configs
 // googleAuthConfig(passport);
+routerConfig(passport);
 
 app.use(cors());//allow to access our API
 app.use(express.json());
