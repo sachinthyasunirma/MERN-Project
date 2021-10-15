@@ -1,7 +1,10 @@
 const RestaurantModel = require('../../Models/restaurant/restaurant.model');
+const { validateRestaurantCity, validateRestaurantSearchString } = require('../../Validation/restaurant');
+const {validateRestaurantId} = require("../../Validation/food");
 
 const searchResByLocation = async(req,res)=>{
     try{
+        await validateRestaurantCity(req.query);
         const{
             city
         }=req.query
@@ -24,6 +27,7 @@ const searchResByLocation = async(req,res)=>{
 }
 const searchResById = async (req,res) =>{
     try{
+        await validateRestaurantId(req.params);
         const {
             _id
         }=req.params
@@ -46,6 +50,7 @@ const searchResById = async (req,res) =>{
 }
 const searchByString = async (req,res) =>{
     try{
+        await validateRestaurantSearchString(req.body);
         const{
             searchString
         }=req.body

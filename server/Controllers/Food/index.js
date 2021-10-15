@@ -1,10 +1,13 @@
 const foodModel = require("../../Models/food/food.model");
+const {validateRestaurantId,validateRestaurantCategory} = require("../../Validation/food");
 
 const searchResById = async (req,res)=>{
     try{
+        
         const{
-            _id
+            _id//resturant Id
         }= req.params
+        await validateRestaurantId(_id);
         const foods = await foodModel.find({
             restaurant : _id,
         })
@@ -28,6 +31,7 @@ const searchCateByString = async (req,res)=>{
         const{
             category
         }= req.params
+        await validateRestaurantCategory(category);
         const foods = await foodModel.find({
             category : { $regex:category, $options:"i" },
         })

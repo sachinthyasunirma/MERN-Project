@@ -43,6 +43,6 @@ const OrderSchema = new mongoose.Schema({
     timestamps:true
 })
 
-const OrderModel = mongoose.model("Orders", MenuSchema);
+const OrderModel = mongoose.model("Orders", OrderSchema);
 
 module.exports = OrderModel;
