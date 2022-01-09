@@ -1,9 +1,15 @@
+import React from "react";
+// import {Route} from "react-router-dom";
+//layout
+import HomeLayoutHOC from "./HOC/Home.HOC";
 
+//pages
+import HomePage from "./Pages/HomePage";
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+  <>
+      <HomeLayoutHOC component={ HomePage } path="/" />
+  </>
   );
 }
 

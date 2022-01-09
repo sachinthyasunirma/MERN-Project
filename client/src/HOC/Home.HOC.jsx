@@ -1,13 +1,24 @@
 import React from 'react'
-import { Router } from 'react-router-dom';
 
-//Layout
-import HomeLayout from '../Layout/Home.layout';
+import {Routes,Route} from 'react-router-dom';
 
-function HomeLayoutHOC() {
+//layout
+import HomeLayout from '../Layouts/Home.layout';
+
+function HomeLayoutHOC({ component: Component, path, ...rest}) {
     return (
-        <div>
-        </div>
+        <>
+            <Routes>
+                <Route
+                    {...rest}
+                    path ={path} 
+                    element = {
+                    <HomeLayout>
+                        <Component />
+                    </HomeLayout>
+                }/>
+            </Routes>
+        </>
     )
 }
 
