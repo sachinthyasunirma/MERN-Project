@@ -9,6 +9,7 @@ function App() {
   return (
   <>
       <HomeLayoutHOC component={ HomePage } path="/" />
+      <HomeLayoutHOC component={ HomePage } path="/:type" />
   </>
   );
 }
