@@ -84,16 +84,17 @@ function LargNav(){
                         </div>
                     </div>
                     {user.fullName ? (
-                        <div className='relative w-20'>
-                            <div onClick={()=>setIsDropDownOpen((prev)=>!prev)} className='border border-gray-300 text-zomato-400 w-full h-20 rounded-full'>
+                        <div className='relative'>
+                            <div onClick={()=>setIsDropDownOpen((prev)=>!prev)} className='border border-gray-300 text-zomato-400 w-full h-14 rounded-full'>
                                 <img 
                                 src='https://www.allthetests.com/quiz22/picture/pic_1171831236_1.png' 
                                 alt='avatar' 
-                                className='w-full rounded-full object-cover'
+                                className='w-full h-full rounded-full object-cover'
                                 />
                             </div>
+                            
                             {isDropDownOpen && (
-                            <div className='absolute shadow-lg py-3 -bottom-15 -right-4 w-full bg-white z-20 flex flex-col gap-2'>
+                            <div className='absolute shadow-lg py-3 -bottom-15 -right-4 w-20 bg-white z-20 flex flex-col gap-2'>
                                 <button>Sign Out</button>
                             </div>
                             )}
